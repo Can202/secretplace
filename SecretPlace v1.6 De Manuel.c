@@ -1,5 +1,8 @@
 /*SecretPlace v1.5*/
 #include <stdio.h>
+#include <ncurses.h>
+#include <stdlib.h>
+#include <time.h>
 int loop(char v[10][20],int *AV);
 void mod(char v[10][20],char *move,int *pX,int *pY,int *PV,int *j,int *g,int *AYUD,int *V);
 void LS(int *l,int *k);
@@ -7,6 +10,7 @@ int probar(char v[10][20],int *V,int l,int k,int pY,int pX);
 void uptade();
 void draw(char v[10][20],int *V);
 void intro(char v[10][20],int pY,int pX,int *V);
+int term_pause();
 int main(){
 	char v[10][20];
 	int s,OV,N,g;
@@ -16,12 +20,12 @@ int main(){
 	AV=3;
 	s=3;
 	printf("Eres nivel %i.\n",N);
-	system("pause");
-	system("cls");
+	term_pause();
+	system("clear");
 	do{
 		g=loop(v,&AV);
 		s=4;
-		system("cls");
+		system("clear");
 		if(g==3){
 			N++;
 			if(AV<100){
@@ -35,15 +39,15 @@ int main(){
 			AV=3;
 			printf("eres nivel %i.\n",N);
 		}
-		system("pause");
-		system("cls");
+		term_pause();
+		system("clear");
 		if(N==100){
 			printf("Felicidades llegaste al nivel 100, es el mejor nivel, presumelo, Empezaras de cero.");
 			N=0;
-			system("pause");
+			term_pause();
 		}
 		while(s==4){
-			system("cls");
+			system("clear");
 			printf("2 y despues intro para continuar.\n3 y despues intro para salir.\n");
 			fflush(stdin);
 			scanf("%i",&s);
@@ -59,10 +63,10 @@ int main(){
 			else{
 				s=4;
 			}
-			system("cls");
+			system("clear");
 		}
 	}while(OV==2);
-	system("pause");
+	term_pause();
 	return 0;
 }
 int loop(char v[10][20],int *AV){
@@ -100,7 +104,7 @@ int loop(char v[10][20],int *AV){
 		printf("Ganaste.\n");
 	}
 	*AV=V;
-	system("pause");
+	term_pause();
 	return g;
 }
 void mod(char v[10][20],char *move,int *pX,int *pY,int *PV,int *j,int *g,int *AYUD,int *V){
@@ -223,7 +227,7 @@ int probar(char v[10][20],int *V,int l,int k,int pY,int pX){
 	return 0;
 }
 void uptade(){
-	system("cls");
+	system("clear");
 }
 void draw(char v[10][20],int *V){
 	int i,j;
@@ -263,4 +267,9 @@ void intro(char v[10][20],int pY,int pX,int *V){
 	}
 	v[pY][pX]='c';
 	v[pY][pX+1]=':';
+}
+int term_pause() {
+    printf("\nEnter to continue...\n");
+    getchar();
+    return 0;
 }
