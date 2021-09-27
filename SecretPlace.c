@@ -4,6 +4,9 @@
 //#include <ncurses.h>
 #include <stdlib.h>
 #include <time.h>
+
+
+
 int loop(char v[10][20],int *AV);
 void mod(char v[10][20],char *move,int *pX,int *pY,int *PV,int *j,int *g,int *AYUD,int *V);
 void LS(int *l,int *k);
@@ -12,6 +15,7 @@ void uptade();
 void draw(char v[10][20],int *V);
 void intro(char v[10][20],int pY,int pX,int *V);
 int term_pause();
+int clear_win();
 int main(){
 	//initscr();
 	//timeout( -1 );
@@ -24,11 +28,11 @@ int main(){
 	s=3;
 	printf("Eres nivel %i.\n",N);
 	term_pause();
-	clrscr();
+	clear_win();
 	do{
 		g=loop(v,&AV);
 		s=4;
-		clrscr();
+		clear_win();
 		if(g==3){
 			N++;
 			if(AV<100){
@@ -43,14 +47,14 @@ int main(){
 			printf("eres nivel %i.\n",N);
 		}
 		term_pause();
-		clrscr();
+		clear_win();
 		if(N==100){
 			printf("Felicidades llegaste al nivel 100, es el mejor nivel, presumelo, Empezaras de cero.");
 			N=0;
 			term_pause();
 		}
 		while(s==4){
-			clrscr();
+			clear_win();
 			printf("2 y despues intro para continuar.\n3 y despues intro para salir.\n");
 			fflush(stdin);
 			scanf("%i",&s);
@@ -66,7 +70,7 @@ int main(){
 			else{
 				s=4;
 			}
-			clrscr();
+			clear_win();
 		}
 	}while(OV==2);
 	term_pause();
@@ -231,7 +235,7 @@ int probar(char v[10][20],int *V,int l,int k,int pY,int pX){
 	return 0;
 }
 void uptade(){
-	clrscr();
+	clear_win();
 }
 void draw(char v[10][20],int *V){
 	int i,j;
@@ -276,4 +280,7 @@ int term_pause() {
     printf("\nEnter to continue...\n");
     getchar();
     return 0;
+}
+int clear_win() {
+	system("@cls||clear");
 }
