@@ -24,11 +24,11 @@ int main(){
 	s=3;
 	printf("Eres nivel %i.\n",N);
 	term_pause();
-	system("clear");
+	clrscr();
 	do{
 		g=loop(v,&AV);
 		s=4;
-		system("clear");
+		clrscr();
 		if(g==3){
 			N++;
 			if(AV<100){
@@ -43,14 +43,14 @@ int main(){
 			printf("eres nivel %i.\n",N);
 		}
 		term_pause();
-		system("clear");
+		clrscr();
 		if(N==100){
 			printf("Felicidades llegaste al nivel 100, es el mejor nivel, presumelo, Empezaras de cero.");
 			N=0;
 			term_pause();
 		}
 		while(s==4){
-			system("clear");
+			clrscr();
 			printf("2 y despues intro para continuar.\n3 y despues intro para salir.\n");
 			fflush(stdin);
 			scanf("%i",&s);
@@ -66,7 +66,7 @@ int main(){
 			else{
 				s=4;
 			}
-			system("clear");
+			clrscr();
 		}
 	}while(OV==2);
 	term_pause();
@@ -231,7 +231,7 @@ int probar(char v[10][20],int *V,int l,int k,int pY,int pX){
 	return 0;
 }
 void uptade(){
-	system("clear");
+	clrscr();
 }
 void draw(char v[10][20],int *V){
 	int i,j;
