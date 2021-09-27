@@ -2,3 +2,10 @@ Aquí tengo todos los proyectos en c viejos, que sean, más o menos rescatables
 
 
 Cuando tenía 12 años
+
+Para compilarlo en linux en linux
+
+1. Copy this library to /usr/include/
+https://github.com/pushkar147/conio4gcc
+
+2. Use GCC
