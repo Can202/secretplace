@@ -1,6 +1,7 @@
 /*SecretPlace v1.5*/
 #include <stdio.h>
-#include <ncurses.h>
+#include <conio.h>
+//#include <ncurses.h>
 #include <stdlib.h>
 #include <time.h>
 int loop(char v[10][20],int *AV);
@@ -12,6 +13,8 @@ void draw(char v[10][20],int *V);
 void intro(char v[10][20],int pY,int pX,int *V);
 int term_pause();
 int main(){
+	//initscr();
+	//timeout( -1 );
 	char v[10][20];
 	int s,OV,N,g;
 	int AV;
@@ -67,6 +70,7 @@ int main(){
 		}
 	}while(OV==2);
 	term_pause();
+	//endwin();
 	return 0;
 }
 int loop(char v[10][20],int *AV){
